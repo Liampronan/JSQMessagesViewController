@@ -41,4 +41,10 @@
  */
 + (UIButton *)defaultSendButtonItem;
 
+//custom keyboard item -- should not be here..
++(UIButton *)smartKeyboardAccessoryItem;
+
++(UIButton *)defaultKeyboardAccesoryItem;
+
+
 @end

@@ -50,9 +50,4 @@
  */
 - (instancetype)initWithMaskAsOutgoing:(BOOL)maskAsOutgoing;
 
-/**
- *  Clears any media view or media placeholder view that the item has cached.
- */
-- (void)clearCachedMediaViews;
-
 @end

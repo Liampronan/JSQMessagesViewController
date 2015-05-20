@@ -21,6 +21,7 @@
 #import "JSQMessagesCollectionViewFlowLayout.h"
 #import "JSQMessagesCollectionViewCellIncoming.h"
 #import "JSQMessagesCollectionViewCellOutgoing.h"
+//#import "./../../../../ConciergeTableViewCell.h"
 
 #import "JSQMessagesTypingIndicatorFooterView.h"
 #import "JSQMessagesLoadEarlierHeaderView.h"
@@ -37,18 +38,14 @@
 
 @implementation JSQMessagesCollectionView
 
-@dynamic dataSource;
-@dynamic delegate;
-@dynamic collectionViewLayout;
-
 #pragma mark - Initialization
 
 - (void)jsq_configureCollectionView
 {
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-
+    
     self.backgroundColor = [UIColor whiteColor];
-    self.keyboardDismissMode = UIScrollViewKeyboardDismissModeNone;
+    self.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     self.alwaysBounceVertical = YES;
     self.bounces = YES;
     
@@ -63,7 +60,9 @@
     
     [self registerNib:[JSQMessagesCollectionViewCellOutgoing nib]
           forCellWithReuseIdentifier:[JSQMessagesCollectionViewCellOutgoing mediaCellReuseIdentifier]];
-    
+//    
+//    [self registerNib:[ConciergeTableViewCell nib] forCellWithReuseIdentifier:[ConciergeTableViewCell cellReuseIdentifier]];
+//    
     [self registerNib:[JSQMessagesTypingIndicatorFooterView nib]
           forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
           withReuseIdentifier:[JSQMessagesTypingIndicatorFooterView footerReuseIdentifier]];
@@ -141,7 +140,7 @@
     if (indexPath == nil) {
         return;
     }
-
+    
     [self.delegate collectionView:self
             didTapAvatarImageView:cell.avatarImageView
                       atIndexPath:indexPath];
@@ -153,7 +152,7 @@
     if (indexPath == nil) {
         return;
     }
-
+    
     [self.delegate collectionView:self didTapMessageBubbleAtIndexPath:indexPath];
 }
 
@@ -163,23 +162,10 @@
     if (indexPath == nil) {
         return;
     }
-
+    
     [self.delegate collectionView:self
             didTapCellAtIndexPath:indexPath
                     touchLocation:position];
-}
-
-- (void)messagesCollectionViewCell:(JSQMessagesCollectionViewCell *)cell didPerformAction:(SEL)action withSender:(id)sender
-{
-    NSIndexPath *indexPath = [self indexPathForCell:cell];
-    if (indexPath == nil) {
-        return;
-    }
-
-    [self.delegate collectionView:self
-                    performAction:action
-               forItemAtIndexPath:indexPath
-                       withSender:sender];
 }
 
 @end

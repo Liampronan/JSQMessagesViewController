@@ -80,6 +80,8 @@ FOUNDATION_EXPORT const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingD
  */
 @property (weak, nonatomic) UIButton *rightBarButtonItem;
 
+@property (weak, nonatomic) UIButton *rightBarButtonItemNoText;
+
 /**
  *  Specifies the width of the rightBarButtonItem.
  *

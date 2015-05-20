@@ -207,6 +207,7 @@
 
 - (void)jsq_didReceiveTextViewNotification:(NSNotification *)notification
 {
+//    NSLog(@"boss");
     [self setNeedsDisplay];
 }
 

@@ -49,12 +49,6 @@
     _cachedImageView = nil;
 }
 
-- (void)clearCachedMediaViews
-{
-    [super clearCachedMediaViews];
-    _cachedImageView = nil;
-}
-
 #pragma mark - Setters
 
 - (void)setImage:(UIImage *)image
@@ -88,11 +82,6 @@
     }
     
     return self.cachedImageView;
-}
-
-- (NSUInteger)mediaHash
-{
-    return self.hash;
 }
 
 #pragma mark - NSObject
